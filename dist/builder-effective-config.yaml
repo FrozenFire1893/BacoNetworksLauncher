@@ -1,0 +1,34 @@
+directories:
+  output: dist
+  buildResources: build
+appId: bacolauncher
+productName: Baco Launcher
+artifactName: '${productName}.${ext}'
+win:
+  target:
+    - target: nsis
+      arch: x64
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+mac:
+  target: dmg
+  category: public.app-category.games
+linux:
+  target: AppImage
+  maintainer: FrozenFire1893
+  vendor: FrozenFire1893
+  synopsis: Modded Minecraft Launcher
+  description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.'
+  category: Game
+compression: maximum
+files:
+  - filter:
+      - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.travis.yml,.nvmrc,.eslintrc.json,build.js}'
+extraResources:
+  - filter:
+      - libraries
+asar: true
+electronVersion: 7.1.9
